@@ -8,6 +8,9 @@
       <p>Welcome, <strong><%= @current_user.name %></strong>!</p>
     <% else %>
       <p>You are not logged in.</p>
+      <p>
+        <a href="<%= auth_path(@conn, :request) %>">Sign In</a>
+      </p>
     <% end %>
   </div>
 </div>

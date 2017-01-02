@@ -18,6 +18,8 @@ defmodule TwitterOauthExample.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/auth/request", AuthController, :request
+    get "/auth/callback", AuthController, :callback
   end
 
   # Fetch the current user from the session and add it to `conn.assigns`. This
