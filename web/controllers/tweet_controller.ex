@@ -6,4 +6,9 @@ defmodule TwitterOauthExample.TweetController do
     tweets = ExTwitter.user_timeline([screen_name: screen_name])
     render conn, "index.html", %{tweets: tweets}
   end
+
+  def create(conn, %{"message" => message}) do
+    ExTwitter.update(message)
+    send_resp(conn, 200, "")
+  end
 end

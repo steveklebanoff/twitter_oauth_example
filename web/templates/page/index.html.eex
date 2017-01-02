@@ -7,6 +7,13 @@
     <%= if @current_user do %>
       <p>Welcome, <strong><%= @current_user.name %></strong>!</p>
 
+      <div>
+        <input type="hidden" name="csrf_token" id="csrf_token" value="<%= get_csrf_token() %>">
+        <input type="text" name="message" id="tweet_message" placeholder="Tweet message..."/>
+        <button type="button" id="send_tweet">Send Tweet</button>
+        <div id='send_tweet_status'></div>
+      </div>
+
       <div id='tweets'>
         Loading tweets &hellip;
       </div>
@@ -23,5 +30,5 @@
 
 <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 <%= if @current_user do %>
-  <script>require("web/static/js/app").App.loadTweets()</script>
+  <script>require("web/static/js/app").App.setupTwitter()</script>
 <% end %>

@@ -21,9 +21,36 @@ import "phoenix_html"
 // import socket from "./socket"
 
 import $ from 'jquery';
+
+function loadTweets() {
+  $('#tweets').load('/tweets');
+}
+
 var App = {
-  loadTweets: function run() {
-    $('#tweets').load('/tweets');
+  setupTwitter: function setupTwitter() {
+    loadTweets();
+
+    $('#send_tweet').click((ev) => {
+      ev.preventDefault();
+      $('#send_tweet').hide();
+      $('#send_tweet_status').html('Sending...');
+
+      $.ajax(
+        {
+          url: '/tweets',
+          type: 'post',
+          data: { message: $('#tweet_message').val() },
+          headers: {
+            'x-csrf-token': $('#csrf_token').val()
+          }
+        }
+      ).done(() => {
+        $('#send_tweet_status').html('Sent!');
+        $('#send_tweet').show();
+        loadTweets();
+      });
+
+    });
   }
 };
 
