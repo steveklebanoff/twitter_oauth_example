@@ -4,7 +4,10 @@
 
 <div class="row">
   <div class="col-lg-6">
-    Hallo!
+    <%= if @current_user do %>
+      <p>Welcome, <strong><%= @current_user.name %></strong>!</p>
+    <% else %>
+      <p>You are not logged in.</p>
+    <% end %>
   </div>
-
 </div>

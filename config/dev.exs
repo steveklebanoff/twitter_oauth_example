@@ -41,3 +41,5 @@ config :twitter_oauth_example, TwitterOauthExample.Repo,
   database: "twitter_oauth_example_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "dev.secret.exs"
