@@ -7,6 +7,10 @@
     <%= if @current_user do %>
       <p>Welcome, <strong><%= @current_user.name %></strong>!</p>
 
+      <div id='tweets'>
+        Loading tweets &hellip;
+      </div>
+
       <p><a href="<%= auth_path(@conn, :logout) %>">Logout</a></p>
     <% else %>
       <p>You are not logged in.</p>
@@ -16,3 +20,8 @@
     <% end %>
   </div>
 </div>
+
+<script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<%= if @current_user do %>
+  <script>require("web/static/js/app").App.loadTweets()</script>
+<% end %>

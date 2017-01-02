@@ -1,0 +1,6 @@
+<h4><%= @current_user.screen_name %>'s tweets</h4>
+<ul>
+  <%= for tweet <- @tweets do %>
+    <li><%= tweet.text%></li>
+  <% end %>
+</ul>

@@ -19,3 +19,14 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+import $ from 'jquery';
+var App = {
+  loadTweets: function run() {
+    $('#tweets').load('/tweets');
+  }
+};
+
+module.exports = {
+  App: App
+};
