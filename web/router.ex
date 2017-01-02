@@ -20,6 +20,7 @@ defmodule TwitterOauthExample.Router do
     get "/", PageController, :index
     get "/auth/request", AuthController, :request
     get "/auth/callback", AuthController, :callback
+    get "/auth/logout", AuthController, :logout
   end
 
   # Fetch the current user from the session and add it to `conn.assigns`. This

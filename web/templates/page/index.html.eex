@@ -6,6 +6,8 @@
   <div class="col-lg-6">
     <%= if @current_user do %>
       <p>Welcome, <strong><%= @current_user.name %></strong>!</p>
+
+      <p><a href="<%= auth_path(@conn, :logout) %>">Logout</a></p>
     <% else %>
       <p>You are not logged in.</p>
       <p>

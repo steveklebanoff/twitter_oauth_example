@@ -26,13 +26,21 @@ defmodule TwitterOauthExample.AuthController do
       )
     )
 
-    IO.inspect ExTwitter.verify_credentials()
+    user_info = ExTwitter.verify_credentials()
+    user_obj = %{ name: user_info.name, screen_name: user_info.screen_name }
+
     conn = conn
-      |> put_session(:current_user, ExTwitter.verify_credentials())
+      |> put_session(:current_user, user_obj)
       |> put_session(:access_token, access_token.oauth_token)
       |> put_session(:access_token_secret, access_token.oauth_token_secret)
 
     redirect conn, to: Router.Helpers.page_path(conn, :index)
+  end
+
+  def logout(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> redirect(to: Router.Helpers.page_path(conn, :index))
   end
 
 end
