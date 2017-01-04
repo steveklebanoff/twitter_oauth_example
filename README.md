@@ -31,13 +31,18 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ### TODO
 
-- [ ] Show timeline
-- [ ] Allow posting to timeline
-  - [ ] Protect against users not signed in
-- [ ] Write custom plugs instead of defining on router
-- [ ] Write plug for restricting tweets controller to authenticated users
+- [x] Show timeline
+- [x] Allow posting to timeline
+  - [x] Protect against users not signed in
+
+- [x] Write plug for restricting tweets controller to authenticated users
 - [ ] Remove DB ecto stuff from phoenix
-- [ ] Handle when accesss is denied from twitter
+- [ ] Handle when access is denied from twitter
+
+- [ ] make real form, serialize
+- [ ] update bootstrap layout
+- [ ] Write custom plugs instead of defining on router
+- [ ] Manage JS better
 ```
 When done: [info] GET /auth/callback
 [debug] Processing by TwitterOauthExample.AuthController.callback/2
