@@ -13,7 +13,6 @@
 ### Start the app:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
   * Install Node.js dependencies with `npm install`
   * Start Phoenix endpoint with `mix phoenix.server`
 
@@ -34,7 +33,6 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 - [x] Show timeline
 - [x] Allow posting to timeline
   - [x] Protect against users not signed in
-
 - [x] Write plug for restricting tweets controller to authenticated users
 - [ ] Remove DB ecto stuff from phoenix
 - [ ] Handle when access is denied from twitter

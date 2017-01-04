@@ -8,12 +8,3 @@ config :twitter_oauth_example, TwitterOauthExample.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :twitter_oauth_example, TwitterOauthExample.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "twitter_oauth_example_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox

@@ -18,21 +18,12 @@ defmodule TwitterOauthExample.Web do
 
   def model do
     quote do
-      use Ecto.Schema
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
     end
   end
 
   def controller do
     quote do
       use Phoenix.Controller
-
-      alias TwitterOauthExample.Repo
-      import Ecto
-      import Ecto.Query
 
       import TwitterOauthExample.Router.Helpers
       import TwitterOauthExample.Gettext
@@ -65,9 +56,6 @@ defmodule TwitterOauthExample.Web do
     quote do
       use Phoenix.Channel
 
-      alias TwitterOauthExample.Repo
-      import Ecto
-      import Ecto.Query
       import TwitterOauthExample.Gettext
     end
   end
