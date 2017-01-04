@@ -8,7 +8,6 @@ end
 
 defmodule TwitterOauthExample.Plugs.RequireUser do
   import Plug.Conn
-  alias TwitterOauthExample.Router
 
   def init(opts) do; opts; end;
   def call(conn, _opts) do

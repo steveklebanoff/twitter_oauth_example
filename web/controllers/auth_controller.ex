@@ -37,6 +37,12 @@ defmodule TwitterOauthExample.AuthController do
     redirect conn, to: Router.Helpers.page_path(conn, :index)
   end
 
+  def callback(conn, %{"denied" => _}) do
+    conn
+    |> put_flash(:error, "You did not give us access to your account")
+    |> redirect(to: Router.Helpers.page_path(conn, :index))
+  end
+
   def logout(conn, _params) do
     conn
     |> configure_session(drop: true)
