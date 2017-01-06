@@ -29,24 +29,21 @@ function loadTweets() {
 var App = {
   setupTwitter: function setupTwitter() {
     loadTweets();
-
-    $('#send_tweet').click((ev) => {
+    $('#tweet-form-submit').click((ev) => {
       ev.preventDefault();
-      $('#send_tweet').hide();
-      $('#send_tweet_status').html('Sending...');
+      $('#tweet-form-submit').hide();
+      $('#send-tweet-status').html('Sending...');
 
+      const $tweetForm = $('#tweet-form');
       $.ajax(
         {
-          url: '/tweets',
-          type: 'post',
-          data: { message: $('#tweet_message').val() },
-          headers: {
-            'x-csrf-token': $('#csrf_token').val()
-          }
+          url: $tweetForm.attr('action'),
+          type: $tweetForm.attr('method'),
+          data: $tweetForm.serialize(),
         }
       ).done(() => {
-        $('#send_tweet_status').html('Sent!');
-        $('#send_tweet').show();
+        $('#send-tweet-status').html('Sent!');
+        $('#tweet-form-submit').show();
         loadTweets();
       });
 

@@ -1,28 +1,38 @@
-<div class="jumbotron">
-  <h3>Twitter &amp; OAuth in Elixir</h3>
+<div class="row" id="twitter-header">
+  <div class="col-lg-12">
+    <h3>Twitter &amp; OAuth in Elixir</h3>
+  </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <%= if @current_user do %>
-      <p>Welcome, <strong><%= @current_user.name %></strong>!</p>
+      <p id='twitter-user-info'>
+        Welcome, <strong><%= @current_user.name %></strong>!
+        <a href="<%= auth_path(@conn, :logout) %>" class="btn btn-default btn-sm">Logout</a>
+      </p>
 
-      <div>
-        <input type="hidden" name="csrf_token" id="csrf_token" value="<%= get_csrf_token() %>">
-        <input type="text" name="message" id="tweet_message" placeholder="Tweet message..."/>
-        <button type="button" id="send_tweet">Send Tweet</button>
-        <div id='send_tweet_status'></div>
-      </div>
+      <form id='tweet-form' class='form-inline' method='post' action='<%= tweet_path(@conn, :create)%>'>
+        <input type="hidden" name="_csrf_token" id="csrf_token" value="<%= get_csrf_token() %>">
+        <div class="form-group">
+          <label for="tweet-message">Message:</label>
+          <input type="text" name="message" id="tweet-message" placeholder="Tweet message..."/>
+          <button type="submit" class="btn btn-default btn-sm" id='tweet-form-submit'>Submit</button>
+        </div>
+        <div>
+          <p id='send-tweet-status'></p>
+        </div>
+      </form>
+
 
       <div id='tweets'>
         Loading tweets &hellip;
       </div>
 
-      <p><a href="<%= auth_path(@conn, :logout) %>">Logout</a></p>
     <% else %>
-      <p>You are not logged in.</p>
-      <p>
-        <a href="<%= auth_path(@conn, :request) %>">Sign In</a>
+      <p id='twitter-login'>
+        You are not logged in.
+        <a href="<%= auth_path(@conn, :request) %>" class="btn btn-default btn-sm">Sign In</a>
       </p>
     <% end %>
   </div>

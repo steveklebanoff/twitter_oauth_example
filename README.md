@@ -6,7 +6,7 @@
 - Create a new twitter app https://apps.twitter.com/
 - Make sure to set a Privacy URL and Terms Of Service URL
 - After creating, modify app's settings
-  - Update the app's settings with "Read and Write" for the Access type, and also check "Request email addresses from users".  
+  - Update the app's settings with "Read and Write" for the Access Type
 - Copy `dev.secret.exs.example` to `dev.secret.exs` and fill your app's in consumer key and secret
 
 
@@ -25,19 +25,3 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 - We store the twitter access_token and access_token_secret in the session
   - You would need the consumer key and consumer secret to do anything interesting with these tokens.  That being said, you may want to consider alternatives for a production setting.
-
-
-
-### TODO
-
-- [x] Show timeline
-- [x] Allow posting to timeline
-  - [x] Protect against users not signed in
-- [x] Write plug for restricting tweets controller to authenticated users
-- [x] Remove DB ecto stuff from phoenix
-- [x] Handle when access is denied from twitter
-
-- [ ] make real form, serialize
-- [ ] update bootstrap layout
-- [x] Write custom plugs instead of defining on router
-- [ ] Manage JS better

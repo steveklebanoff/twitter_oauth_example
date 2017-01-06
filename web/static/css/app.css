@@ -1,1 +1,18 @@
 /* This file is for your main application css. */
+#tweet-form {
+  padding: 20px;
+  background-color: #f4f7fc;
+  border: 1px solid #000;
+  border-radius: 4px;
+  text-align: center;
+}
+#twitter-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#twitter-user-info {
+  text-align: center;
+}
+#twitter-login {
+  text-align: center;
+}
