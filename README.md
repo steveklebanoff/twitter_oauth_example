@@ -1,6 +1,14 @@
 # Twitter OAuth Example
 ## Twitter authentication and token usage in Elixir
 
+![Demo](http://i.imgur.com/tAvZNgg.gif)
+
+### Background
+
+There are a few good examples showing how to use OAuth authentication in Phoenix and Elixir, but I wanted a solution which used a small amount of dependencies, and had the ability to make authenticated requests on behalf of a user.
+
+Read more at http://headynation.com/twitter-oauth-elixir-phoenix/
+
 ### Setup
 
 - Create a new twitter app https://apps.twitter.com/
