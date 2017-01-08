@@ -41,9 +41,13 @@ var App = {
           type: $tweetForm.attr('method'),
           data: $tweetForm.serialize(),
         }
-      ).done(() => {
-        $('#send-tweet-status').html('Sent!');
+      ).done((resp) => {
+        $('#send-tweet-status').html('');
         $('#tweet-form-submit').show();
+        $('#twitter-alert').show().html(
+          `Tweet Sent. View at <a href='${resp.url}' target='_blank'>${resp.url}</a>`
+        );
+        window.setTimeout(function() { $('#twitter-alert').hide(); }, 5000);
         loadTweets();
       });
 

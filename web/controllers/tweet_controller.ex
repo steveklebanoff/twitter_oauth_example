@@ -9,7 +9,8 @@ defmodule TwitterOauthExample.TweetController do
   end
 
   def create(conn, %{"message" => message}) do
-    ExTwitter.update(message)
-    send_resp(conn, 200, "")
+    tweet = ExTwitter.update(message)
+    url = "https://twitter.com/#{tweet.user.screen_name}/status/#{tweet.id}"
+    json conn, %{ url: url }
   end
 end
