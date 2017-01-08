@@ -1,6 +1,7 @@
 defmodule TwitterOauthExample.TweetController do
   use TwitterOauthExample.Web, :controller
   plug TwitterOauthExample.Plugs.RequireUser
+  plug :put_layout, false
 
   def index(conn, _params) do
     screen_name = conn.assigns.current_user.screen_name

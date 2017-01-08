@@ -18,7 +18,18 @@
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">
-        <%= render @view_module, @view_template, assigns %>
+
+        <div class="row" id="twitter-header">
+          <div class="col-lg-12">
+            <h3>Twitter &amp; OAuth in Elixir</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <%= render @view_module, @view_template, assigns %>
+          </div>
+        </div>
       </main>
 
     </div> <!-- /container -->

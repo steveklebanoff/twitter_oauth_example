@@ -1,0 +1,4 @@
+<p id='twitter-login'>
+  You are not logged in.
+  <a href="<%= auth_path(@conn, :request) %>" class="btn btn-default btn-sm">Sign In</a>
+</p>

@@ -1,0 +1,27 @@
+<p id='twitter-user-info'>
+  Welcome, <strong><%= @current_user.name %></strong>!
+  <a href="<%= auth_path(@conn, :logout) %>" class="btn btn-default btn-sm">Logout</a>
+</p>
+
+<div id='twitter-alert' class='alert alert-success' role='alert' style='display: none;'>
+
+</div>
+
+<form id='tweet-form' class='form-inline' method='post' action='<%= tweet_path(@conn, :create)%>'>
+  <input type="hidden" name="_csrf_token" id="csrf_token" value="<%= get_csrf_token() %>">
+  <div class="form-group">
+    <input type="text" name="message" id="tweet-message" placeholder="Tweet message..." maxlength=140/>
+    <button type="submit" class="btn btn-default btn-sm" id='tweet-form-submit'>Tweet</button>
+  </div>
+  <div>
+    <p id='send-tweet-status'></p>
+  </div>
+</form>
+
+
+<div id='tweets'>
+  Loading tweets &hellip;
+</div>
+
+<script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<script>require("web/static/js/app").App.setupTwitter()</script>
