@@ -1,5 +1,5 @@
 # Twitter OAuth Example
-### Twitter OAuth authentication and token usage using Elixir and Phoenix
+### Twitter OAuth example using Elixir and Phoenix with authenticated requests
 
 ![Demo](http://i.imgur.com/tAvZNgg.gif)
 
